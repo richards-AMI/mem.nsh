@@ -22,6 +22,7 @@ if  x%1 ne x  then
 	echo " " >> %1
 	
 else
+	echo "  mem.nsh LBXX_memmap.log " 
 	date > AMI_MEM.log
 	time >> AMI_MEM.log
 	echo "* ************************************ * ************************************ *" >> AMI_MEM.log
