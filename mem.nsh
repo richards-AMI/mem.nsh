@@ -1,4 +1,5 @@
-echo -off
+@echo -off
+# Works on EGS / SPR / Archer City
 
 # for serial debug log / human
 	echo " "
@@ -10,27 +11,28 @@ echo -off
 	echo "* ************************************ * ************************************ *"
 	memmap
 
+
+set -v FN AMI_mem.log
+
+# If a filename is provided by user
+if  x%1 ne x  then  
+	set -v FN %1
+else
+	echo mem.nsh LB.log
+endif
+
 	
 # save to a file
 # logic to check existence file name on command line.
 # but, not checking for a valid filename.
-if  x%1 ne x  then  
-	date > %1
-	time >> %1
-	echo "* ************************************ * ************************************ *" >> %1
-	memmap >> %1
-	echo " " >> %1
-	
-else
-	echo "  mem.nsh LBXX_memmap.log " 
-	date > AMI_MEM.log
-	time >> AMI_MEM.log
-	echo "* ************************************ * ************************************ *" >> AMI_MEM.log
-	memmap >> AMI_MEM.log
-	echo " " >> AMI_MEM.log	
+  
+	date > %FN%
+	time >> %FN%
+	echo "* ************************************ * ************************************ *" >> %FN%
+	memmap >> %FN%
+	echo " " >> %FN%
 
-endif
-
+:END
 # Tail of serial log / human
 	echo " "
 	echo " "
