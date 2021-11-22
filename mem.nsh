@@ -1,6 +1,9 @@
 @echo -off
 # Works on EGS / SPR / Archer City
+:git https://github.com/richards-AMI/mem.nsh
 
+
+:START
 # for serial debug log / human
 	echo " "
 	echo " "
@@ -32,7 +35,7 @@ endif
 	memmap >> %FN%
 	echo " " >> %FN%
 
-:END
+:DONE
 # Tail of serial log / human
 	echo " "
 	echo " "
@@ -40,3 +43,4 @@ endif
 	echo "* ************************************ * ************************************ *"
 	echo " "
 	echo " "
+:END
